@@ -1,13 +1,11 @@
-# db/marca_model.py
+
 
 class MarcaModel:
     """
     Modelo para registrar marcas en la base de datos Oracle.
     """
     def __init__(self, conn_manager):
-        self.conn_manager = conn_manager  # solo guardamos el manager
-        # NO definimos atributos tipo, usuario, etc. aquí
-
+        self.conn_manager = conn_manager  
     def create_mark(self, username, tipo, comentario=""):
         try:
             with self.conn_manager.get_connection() as conn:
@@ -34,3 +32,4 @@ class MarcaModel:
         except Exception as e:
             print(f"Error obteniendo marcas: {e}")
             return []
+
